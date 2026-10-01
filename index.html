@@ -1,829 +1,781 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Aryan Editz | Video Editing Studio</title>
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial,Helvetica,sans-serif;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:#07070b;
-  color:#fff;
-  line-height:1.5;
-}
-
-/* NAVBAR */
-nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(7,7,11,.92);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.navbar{
-  max-width:1150px;
-  margin:auto;
-  padding:18px 22px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-.logo{
-  font-size:23px;
-  font-weight:800;
-  white-space:nowrap;
-}
-
-.logo span{
-  color:#8b5cf6;
-}
-
-.navlinks{
-  display:flex;
-  gap:25px;
-}
-
-.navlinks a{
-  color:#aaa;
-  text-decoration:none;
-  font-size:14px;
-  transition:.2s;
-}
-
-.navlinks a:hover{
-  color:#fff;
-}
-
-/* HERO */
-.hero{
-  max-width:1150px;
-  margin:auto;
-  min-height:650px;
-  padding:80px 22px;
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  align-items:center;
-  gap:50px;
-}
-
-.badge{
-  display:inline-block;
-  padding:8px 14px;
-  border:1px solid #8b5cf655;
-  background:#8b5cf611;
-  border-radius:30px;
-  color:#b99cff;
-  font-size:13px;
-  margin-bottom:20px;
-}
-
-.hero h1{
-  font-size:clamp(45px,7vw,78px);
-  line-height:1;
-  letter-spacing:-3px;
-}
-
-.hero h1 span{
-  color:#8b5cf6;
-}
-
-.hero p{
-  color:#999;
-  font-size:17px;
-  max-width:600px;
-  margin:25px 0;
-}
-
-.btn{
-  display:inline-block;
-  border:0;
-  padding:14px 22px;
-  border-radius:12px;
-  background:#8b5cf6;
-  color:#fff;
-  font-weight:bold;
-  cursor:pointer;
-  text-decoration:none;
-  transition:.2s;
-}
-
-.btn:hover{
-  background:#7444e8;
-  transform:translateY(-2px);
-}
-
-.btn2{
-  margin-left:8px;
-  background:#ffffff0d;
-  border:1px solid #ffffff18;
-}
-
-.btn2:hover{
-  background:#ffffff15;
-}
-
-.preview{
-  height:390px;
-  border-radius:25px;
-  border:1px solid #ffffff12;
-  background:
-    radial-gradient(
-      circle at 70% 20%,
-      #8b5cf655,
-      transparent 30%
-    ),
-    linear-gradient(135deg,#171022,#0b0b10);
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  box-shadow:0 20px 80px #000;
-}
-
-.play{
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  background:#ffffff12;
-  border:1px solid #ffffff30;
-  display:grid;
-  place-items:center;
-  font-size:30px;
-}
-
-/* SECTIONS */
-section{
-  max-width:1150px;
-  margin:auto;
-  padding:75px 22px;
-}
-
-.title{
-  text-align:center;
-  margin-bottom:40px;
-}
-
-.title h2{
-  font-size:38px;
-}
-
-.title p{
-  color:#888;
-  margin-top:8px;
-}
-
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.card{
-  background:#101116;
-  border:1px solid #ffffff10;
-  border-radius:20px;
-  padding:27px;
-  transition:.2s;
-}
-
-.card:hover{
-  border-color:#8b5cf655;
-  transform:translateY(-3px);
-}
-
-.card h3{
-  margin-bottom:10px;
-  font-size:21px;
-}
-
-.muted{
-  color:#999;
-}
-
-.price{
-  font-size:38px;
-  font-weight:800;
-  margin:12px 0;
-}
-
-.card ul{
-  list-style:none;
-  margin:20px 0;
-  color:#aaa;
-}
-
-.card li{
-  margin:10px 0;
-}
-
-.card li::before{
-  content:"✓";
-  color:#9b70ff;
-  margin-right:9px;
-}
-
-.featured{
-  border-color:#8b5cf666;
-  box-shadow:0 0 40px #8b5cf611;
-}
-
-/* FORM */
-.form{
-  max-width:520px;
-  margin:auto;
-}
-
-input,
-select,
-textarea{
-  width:100%;
-  margin:7px 0;
-  padding:14px;
-  background:#0b0c10;
-  color:#fff;
-  border:1px solid #ffffff18;
-  border-radius:10px;
-  outline:none;
-  font-size:15px;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-  border-color:#8b5cf6;
-  box-shadow:0 0 0 2px #8b5cf622;
-}
-
-select option{
-  background:#101116;
-  color:#fff;
-}
-
-textarea{
-  min-height:110px;
-  resize:vertical;
-}
-
-.form .btn{
-  width:100%;
-  margin-top:10px;
-}
-
-.message{
-  text-align:center;
-  color:#a78bfa;
-  margin-top:14px;
-  font-size:13px;
-  min-height:20px;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:35px 20px;
-  border-top:1px solid #ffffff0d;
-  color:#777;
-}
-
-/* MOBILE */
-@media(max-width:750px){
-
-  .navbar{
-    padding:15px 18px;
-  }
-
-  .navlinks{
-    display:none;
-  }
-
-  .hero{
-    grid-template-columns:1fr;
-    padding-top:55px;
-    gap:35px;
-  }
-
-  .hero h1{
-    letter-spacing:-2px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  .preview{
-    height:300px;
-  }
-
-  .grid{
-    grid-template-columns:1fr;
-  }
-
-  .btn{
-    text-align:center;
-  }
-
-  .btn2{
-    margin-left:0;
-    margin-top:10px;
-  }
-
-  section{
-    padding:60px 18px;
-  }
-
-  .title h2{
-    font-size:32px;
-  }
-}
-
-@media(max-width:400px){
-
-  .logo{
-    font-size:19px;
-  }
-
-  .hero h1{
-    font-size:43px;
-  }
-
-  .preview{
-    height:250px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<!-- NAVBAR -->
-<nav>
-  <div class="navbar">
-
-    <div class="logo">
-      ARYAN<span>EDITZ</span>
-    </div>
-
-    <div class="navlinks">
-      <a href="#home">Home</a>
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#register">Register</a>
-      <a href="#order">Order</a>
-    </div>
-
-  </div>
-</nav>
-
-
-<!-- HERO -->
-<div class="hero" id="home">
-
-  <div>
-
-    <div class="badge">
-      🎬 PROFESSIONAL VIDEO EDITING
-    </div>
-
-    <h1>
-      Your videos.<br>
-      <span>Better stories.</span>
-    </h1>
-
-    <p>
-      Professional Reels, Shorts, YouTube videos and cinematic edits
-      for creators, influencers and businesses.
-    </p>
-
-    <a class="btn" href="#order">
-      Start an Order
-    </a>
-
-    <a class="btn btn2" href="#pricing">
-      View Pricing
-    </a>
-
-  </div>
-
-  <div class="preview">
-    <div class="play">
-      ▶
-    </div>
-  </div>
-
-</div>
-
-
-<!-- SERVICES -->
-<section id="services">
-
-  <div class="title">
-    <h2>My Services</h2>
-    <p>Everything you need to make your content look better.</p>
-  </div>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>📱 Reels & Shorts</h3>
-      <p class="muted">
-        Fast cuts, captions, transitions, effects and beat-sync editing.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>🎥 YouTube Editing</h3>
-      <p class="muted">
-        Clean cuts, B-roll, subtitles, sound design and engaging pacing.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>✨ Cinematic Editing</h3>
-      <p class="muted">
-        Color grading, slow motion, cinematic effects and storytelling.
-      </p>
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- PRICING -->
-<section id="pricing">
-
-  <div class="title">
-    <h2>Simple Pricing</h2>
-    <p>Affordable editing for creators.</p>
-  </div>
-
-  <div class="grid">
-
-    <div class="card">
-
-      <h3>Basic Reel</h3>
-
-      <div class="price">
-        ₹300
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Aryan Editz | Video Editing Studio</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #07070b;
+        color: #fff;
+        line-height: 1.5;
+      }
+
+      /* NAVBAR */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(7, 7, 11, 0.92);
+        backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .navbar {
+        max-width: 1150px;
+        margin: auto;
+        padding: 18px 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 23px;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .logo span {
+        color: #8b5cf6;
+      }
+
+      .navlinks {
+        display: flex;
+        gap: 25px;
+      }
+
+      .navlinks a {
+        color: #aaa;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.2s;
+      }
+
+      .navlinks a:hover {
+        color: #fff;
+      }
+
+      /* HERO */
+      .hero {
+        max-width: 1150px;
+        margin: auto;
+        min-height: 650px;
+        padding: 80px 22px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        gap: 50px;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 8px 14px;
+        border: 1px solid #8b5cf655;
+        background: #8b5cf611;
+        border-radius: 30px;
+        color: #b99cff;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .hero h1 {
+        font-size: clamp(45px, 7vw, 78px);
+        line-height: 1;
+        letter-spacing: -3px;
+      }
+
+      .hero h1 span {
+        color: #8b5cf6;
+      }
+
+      .hero p {
+        color: #999;
+        font-size: 17px;
+        max-width: 600px;
+        margin: 25px 0;
+      }
+
+      .btn {
+        display: inline-block;
+        border: 0;
+        padding: 14px 22px;
+        border-radius: 12px;
+        background: #8b5cf6;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .btn:hover {
+        background: #7444e8;
+        transform: translateY(-2px);
+      }
+
+      .btn2 {
+        margin-left: 8px;
+        background: #ffffff0d;
+        border: 1px solid #ffffff18;
+      }
+
+      .btn2:hover {
+        background: #ffffff15;
+      }
+
+      .preview {
+        height: 390px;
+        border-radius: 25px;
+        border: 1px solid #ffffff12;
+        background:
+          radial-gradient(circle at 70% 20%, #8b5cf655, transparent 30%),
+          linear-gradient(135deg, #171022, #0b0b10);
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 20px 80px #000;
+      }
+
+      .play {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: #ffffff12;
+        border: 1px solid #ffffff30;
+        display: grid;
+        place-items: center;
+        font-size: 30px;
+      }
+
+      /* SECTIONS */
+      section {
+        max-width: 1150px;
+        margin: auto;
+        padding: 75px 22px;
+      }
+
+      .title {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .title h2 {
+        font-size: 38px;
+      }
+
+      .title p {
+        color: #888;
+        margin-top: 8px;
+      }
+
+      /* GRID */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+
+      .card {
+        background: #101116;
+        border: 1px solid #ffffff10;
+        border-radius: 20px;
+        padding: 27px;
+        transition: 0.2s;
+      }
+
+      .card:hover {
+        border-color: #8b5cf655;
+        transform: translateY(-3px);
+      }
+
+      .card h3 {
+        margin-bottom: 10px;
+        font-size: 21px;
+      }
+
+      .muted {
+        color: #999;
+      }
+
+      .price {
+        font-size: 38px;
+        font-weight: 800;
+        margin: 12px 0;
+      }
+
+      .card ul {
+        list-style: none;
+        margin: 20px 0;
+        color: #aaa;
+      }
+
+      .card li {
+        margin: 10px 0;
+      }
+
+      .card li::before {
+        content: "✓";
+        color: #9b70ff;
+        margin-right: 9px;
+      }
+
+      .featured {
+        border-color: #8b5cf666;
+        box-shadow: 0 0 40px #8b5cf611;
+      }
+
+      /* FORM */
+      .form {
+        max-width: 520px;
+        margin: auto;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        margin: 7px 0;
+        padding: 14px;
+        background: #0b0c10;
+        color: #fff;
+        border: 1px solid #ffffff18;
+        border-radius: 10px;
+        outline: none;
+        font-size: 15px;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #8b5cf6;
+        box-shadow: 0 0 0 2px #8b5cf622;
+      }
+
+      select option {
+        background: #101116;
+        color: #fff;
+      }
+
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+
+      .form .btn {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .message {
+        text-align: center;
+        color: #a78bfa;
+        margin-top: 14px;
+        font-size: 13px;
+        min-height: 20px;
+      }
+
+      /* FOOTER */
+      footer {
+        text-align: center;
+        padding: 35px 20px;
+        border-top: 1px solid #ffffff0d;
+        color: #777;
+      }
+
+      /* MOBILE */
+      @media (max-width: 750px) {
+        .navbar {
+          padding: 15px 18px;
+        }
+
+        .navlinks {
+          display: none;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 55px;
+          gap: 35px;
+        }
+
+        .hero h1 {
+          letter-spacing: -2px;
+        }
+
+        .hero p {
+          font-size: 16px;
+        }
+
+        .preview {
+          height: 300px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .btn {
+          text-align: center;
+        }
+
+        .btn2 {
+          margin-left: 0;
+          margin-top: 10px;
+        }
+
+        section {
+          padding: 60px 18px;
+        }
+
+        .title h2 {
+          font-size: 32px;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .logo {
+          font-size: 19px;
+        }
+
+        .hero h1 {
+          font-size: 43px;
+        }
+
+        .preview {
+          height: 250px;
+        }
+      }
+
+      /* #videoFile::file-selector-button {
+        padding: 8px 10px;
+        border: 1px solid #000;
+        border-radius: 8px;
+        background: #000;
+        color: #fff;
+        cursor: pointer;
+        margin-right: 12px;
+        font-size: 14px;
+      }
+
+      #videoFile::file-selector-button:hover {
+        opacity: 0.9;
+      } */
+    </style>
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav>
+      <div class="navbar">
+        <div class="logo">ARYAN<span>EDITZ</span></div>
+
+        <div class="navlinks">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#register">Register</a>
+          <a href="#order">Order</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero" id="home">
+      <div>
+        <div class="badge">🎬 PROFESSIONAL VIDEO EDITING</div>
+
+        <h1>
+          Your videos.<br />
+          <span>Better stories.</span>
+        </h1>
+
+        <p>
+          Professional Reels, Shorts, YouTube videos and cinematic edits for
+          creators, influencers and businesses.
+        </p>
+
+        <a class="btn" href="#order"> Start an Order </a>
+
+        <a class="btn btn2" href="#pricing"> View Pricing </a>
       </div>
 
-      <p class="muted">
-        1 short reel
-      </p>
-
-      <ul>
-        <li>Clean cuts</li>
-        <li>Basic captions</li>
-        <li>Basic transitions</li>
-        <li>48–72 hour delivery</li>
-      </ul>
-
-      <a class="btn" href="#order">
-        Choose Plan
-      </a>
-
+      <div class="preview">
+        <div class="play">▶</div>
+      </div>
     </div>
 
-
-    <div class="card featured">
-
-      <h3>Pro Reel</h3>
-
-      <div class="price">
-        ₹500
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="title">
+        <h2>My Services</h2>
+        <p>Everything you need to make your content look better.</p>
       </div>
 
-      <p class="muted">
-        1 premium reel
-      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>📱 Reels & Shorts</h3>
+          <p class="muted">
+            Fast cuts, captions, transitions, effects and beat-sync editing.
+          </p>
+        </div>
 
-      <ul>
-        <li>Advanced transitions</li>
-        <li>Captions & effects</li>
-        <li>Color grading</li>
-        <li>Sound polishing</li>
-      </ul>
+        <div class="card">
+          <h3>🎥 YouTube Editing</h3>
+          <p class="muted">
+            Clean cuts, B-roll, subtitles, sound design and engaging pacing.
+          </p>
+        </div>
 
-      <a class="btn" href="#order">
-        Choose Plan
-      </a>
+        <div class="card">
+          <h3>✨ Cinematic Editing</h3>
+          <p class="muted">
+            Color grading, slow motion, cinematic effects and storytelling.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    </div>
-
-
-    <div class="card">
-
-      <h3>5 Reel Pack</h3>
-
-      <div class="price">
-        ₹800
+    <!-- PRICING -->
+    <section id="pricing">
+      <div class="title">
+        <h2>Simple Pricing</h2>
+        <p>Affordable editing for creators.</p>
       </div>
 
-      <p class="muted">
-        5 edited reels
-      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>Basic Reel</h3>
+
+          <div class="price">₹300</div>
+
+          <p class="muted">1 short reel</p>
+
+          <ul>
+            <li>Clean cuts</li>
+            <li>Basic captions</li>
+            <li>Basic transitions</li>
+            <li>48–72 hour delivery</li>
+          </ul>
+
+          <a class="btn" href="#order"> Choose Plan </a>
+        </div>
+
+        <div class="card featured">
+          <h3>Pro Reel</h3>
+
+          <div class="price">₹500</div>
+
+          <p class="muted">1 premium reel</p>
+
+          <ul>
+            <li>Advanced transitions</li>
+            <li>Captions & effects</li>
+            <li>Color grading</li>
+            <li>Sound polishing</li>
+          </ul>
+
+          <a class="btn" href="#order"> Choose Plan </a>
+        </div>
+
+        <div class="card">
+          <h3>5 Reel Pack</h3>
+
+          <div class="price">₹800</div>
+
+          <p class="muted">5 edited reels</p>
+
+          <ul>
+            <li>Consistent style</li>
+            <li>Premium editing</li>
+            <li>Social-ready exports</li>
+            <li>Priority delivery</li>
+          </ul>
+
+          <a class="btn" href="#order"> Choose Plan </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- REGISTER -->
+    <section id="register">
+      <div class="title">
+        <h2>Create Account</h2>
+        <p>Register to place your editing order.</p>
+      </div>
+
+      <div class="card form">
+        <input
+          id="name"
+          type="text"
+          placeholder="Full Name"
+          autocomplete="name"
+        />
+
+        <input
+          id="email"
+          type="email"
+          placeholder="Email Address"
+          autocomplete="email"
+        />
+
+        <input
+          id="password"
+          type="password"
+          placeholder="Password"
+          autocomplete="new-password"
+        />
+
+        <button type="button" class="btn" onclick="register()">
+          Create Account
+        </button>
+
+        <div id="registerMessage" class="message"></div>
+      </div>
+    </section>
+
+    <!-- ORDER -->
+    <!-- <section id="order">
+      <div class="title">
+        <h2>Place Your Order</h2>
+        <p>Tell me what you want edited.</p>
+      </div>
+
+      <div class="card form">
+        <input id="orderName" type="text" placeholder="Your Name" />
+
+        <input
+          id="phone"
+          type="tel"
+          placeholder="WhatsApp Number"
+          inputmode="numeric"
+          maxlength="10"
+        />
 
-      <ul>
-        <li>Consistent style</li>
-        <li>Premium editing</li>
-        <li>Social-ready exports</li>
-        <li>Priority delivery</li>
-      </ul>
+        <select id="service">
+          <option value="Basic Reel - ₹100">Basic Reel — ₹100</option>
 
-      <a class="btn" href="#order">
-        Choose Plan
-      </a>
+          <option value="Pro Reel - ₹250">Pro Reel — ₹250</option>
 
-    </div>
+          <option value="5 Reel Pack - ₹800">5 Reel Pack — ₹800</option>
+        </select>
 
-  </div>
-
-</section>
+        <input
+          id="fileLink"
+          type="url"
+          placeholder="Google Drive / Dropbox video link"
+        />
 
-
-<!-- REGISTER -->
-<section id="register">
-
-  <div class="title">
-    <h2>Create Account</h2>
-    <p>Register to place your editing order.</p>
-  </div>
-
-  <div class="card form">
+        <textarea
+          id="details"
+          placeholder="Describe your editing requirements..."
+        ></textarea>
 
-    <input
-      id="name"
-      type="text"
-      placeholder="Full Name"
-      autocomplete="name"
-    >
+        <button type="button" class="btn" onclick="placeOrder()">
+          Continue to Payment
+        </button>
 
-    <input
-      id="email"
-      type="email"
-      placeholder="Email Address"
-      autocomplete="email"
-    >
+        <div id="orderMessage" class="message"></div>
+      </div>
+    </section> -->
 
-    <input
-      id="password"
-      type="password"
-      placeholder="Password"
-      autocomplete="new-password"
-    >
+    <!-- ORDER -->
+    <!-- ORDER -->
+    <section id="order">
+      <div class="title">
+        <h2>Place Your Order</h2>
+        <p>Tell me what you want edited.</p>
+      </div>
 
-    <button
-      type="button"
-      class="btn"
-      onclick="register()"
-    >
-      Create Account
-    </button>
+      <div class="card form">
+        <input id="orderName" type="text" placeholder="Your Name" />
 
-    <div id="registerMessage" class="message"></div>
+        <select id="service">
+          <option value="Basic Reel - ₹100">Basic Reel — ₹100</option>
 
-  </div>
+          <option value="Pro Reel - ₹250">Pro Reel — ₹250</option>
 
-</section>
+          <option value="5 Reel Pack - ₹800">5 Reel Pack — ₹800</option>
+        </select>
 
+        <textarea
+          id="details"
+          placeholder="Describe your editing requirements..."
+        ></textarea>
 
-<!-- ORDER -->
-<section id="order">
+        <button type="button" class="btn" onclick="placeOrder()">
+          Send on WhatsApp
+        </button>
 
-  <div class="title">
-    <h2>Place Your Order</h2>
-    <p>Tell me what you want edited.</p>
-  </div>
+        <div id="orderMessage" class="message"></div>
+      </div>
+    </section>
 
-  <div class="card form">
+    <!-- FOOTER -->
+    <footer>
+      © 2026 ARYAN EDITZ
+      <br /><br />
+      Professional Video Editing Studio
+    </footer>
 
-    <input
-      id="orderName"
-      type="text"
-      placeholder="Your Name"
-    >
+    <script>
+      /* REGISTER */
 
-    <input
-      id="phone"
-      type="tel"
-      placeholder="WhatsApp Number"
-      inputmode="numeric"
-      maxlength="10"
-    >
+      function register() {
+        const name = document.getElementById("name").value.trim();
 
-    <select id="service">
+        const email = document.getElementById("email").value.trim();
 
-      <option value="Basic Reel - ₹100">
-        Basic Reel — ₹100
-      </option>
+        const password = document.getElementById("password").value;
 
-      <option value="Pro Reel - ₹250">
-        Pro Reel — ₹250
-      </option>
+        const message = document.getElementById("registerMessage");
 
-      <option value="5 Reel Pack - ₹800">
-        5 Reel Pack — ₹800
-      </option>
+        if (!name || !email || !password) {
+          message.innerText = "⚠️ Please fill all fields.";
 
-    </select>
+          return;
+        }
 
-    <input
-      id="fileLink"
-      type="url"
-      placeholder="Google Drive / Dropbox video link"
-    >
+        message.innerText = "⏳ Creating account...";
 
-    <textarea
-      id="details"
-      placeholder="Describe your editing requirements..."
-    ></textarea>
+        setTimeout(() => {
+          message.innerText = "✅ Account created successfully!";
 
-    <button
-      type="button"
-      class="btn"
-      onclick="placeOrder()"
-    >
-      Continue to Payment
-    </button>
+          document.getElementById("name").value = "";
+          document.getElementById("email").value = "";
+          document.getElementById("password").value = "";
+        }, 1500);
+      }
 
-    <div id="orderMessage" class="message"></div>
+      /* ORDER */
+      // function placeOrder(){
 
-  </div>
+      //   const name =
+      //     document.getElementById("orderName").value.trim();
 
-</section>
+      //   const phone =
+      //     document.getElementById("phone").value.trim();
 
+      //   const service =
+      //     document.getElementById("service").value;
 
-<!-- FOOTER -->
-<footer>
+      //   const fileLink =
+      //     document.getElementById("fileLink").value.trim();
 
-  © 2026 ARYAN EDITZ
-  <br><br>
-  Professional Video Editing Studio
+      //   const details =
+      //     document.getElementById("details").value.trim();
 
-</footer>
+      //   const message =
+      //     document.getElementById("orderMessage");
 
+      //   if(!name){
 
-<script>
+      //     message.innerText =
+      //       "⚠️ Please enter your name.";
 
-/* REGISTER */
-function register(){
+      //     return;
+      //   }
 
-  const name =
-    document.getElementById("name").value.trim();
+      //   if(!phone){
 
-  const email =
-    document.getElementById("email").value.trim();
+      //     message.innerText =
+      //       "⚠️ Please enter your WhatsApp number.";
 
-  const password =
-    document.getElementById("password").value;
+      //     return;
+      //   }
 
-  const message =
-    document.getElementById("registerMessage");
+      //   /* Indian 10-digit mobile number */
+      //   const phonePattern =
+      //     /^[6-9]\d{9}$/;
 
-  if(!name || !email || !password){
+      //   if(!phonePattern.test(phone)){
 
-    message.innerText =
-      "⚠️ Please fill all fields.";
+      //     message.innerText =
+      //       "⚠️ Please enter a valid 10-digit WhatsApp number.";
 
-    return;
-  }
+      //     return;
+      //   }
 
-  /* Email validation */
-  const emailPattern =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      //   if(fileLink){
 
-  if(!emailPattern.test(email)){
+      //     try{
 
-    message.innerText =
-      "⚠️ Please enter a valid email address.";
+      //       new URL(fileLink);
 
-    return;
-  }
+      //     }catch(error){
 
-  /* Password validation */
-  if(password.length < 6){
+      //       message.innerText =
+      //         "⚠️ Please enter a valid video link.";
 
-    message.innerText =
-      "⚠️ Password must be at least 6 characters.";
+      //       return;
+      //     }
 
-    return;
-  }
+      //   }
 
-  message.innerText =
-    "✅ Account created successfully (Demo Mode).";
+      //   message.innerText =
+      //     "✅ Order created: " +
+      //     service +
+      //     ". Payment gateway will be connected here.";
 
-  /* Clear password for safety */
-  document.getElementById("password").value = "";
+      // }
 
-}
+      /* ORDER */
+      /* ORDER */
+      function placeOrder() {
+        const name = document.getElementById("orderName").value.trim();
 
+        const service = document.getElementById("service").value;
 
-/* ORDER */
-function placeOrder(){
+        const details = document.getElementById("details").value.trim();
 
-  const name =
-    document.getElementById("orderName").value.trim();
+        const message = document.getElementById("orderMessage");
 
-  const phone =
-    document.getElementById("phone").value.trim();
+        if (!name) {
+          message.innerText = "⚠️ Please enter your name.";
 
-  const service =
-    document.getElementById("service").value;
+          return;
+        }
 
-  const fileLink =
-    document.getElementById("fileLink").value.trim();
+        const whatsappMessage = `🎬 New Editing Order
 
-  const details =
-    document.getElementById("details").value.trim();
+Name: ${name}
 
-  const message =
-    document.getElementById("orderMessage");
+Service: ${service}
 
+Requirements:
+${details || "None"}
+`;
 
-  if(!name){
+        const yourWhatsAppNumber = "919673053446"; // Replace with your WhatsApp number
 
-    message.innerText =
-      "⚠️ Please enter your name.";
+        window.open(
+          `https://wa.me/${yourWhatsAppNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+          "_blank",
+        );
+      }
+      /* Allow only numbers in phone field */
+      document.getElementById("phone").addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, "");
+      });
 
-    return;
-  }
-
-
-  if(!phone){
-
-    message.innerText =
-      "⚠️ Please enter your WhatsApp number.";
-
-    return;
-  }
-
-
-  /* Indian 10-digit mobile number */
-  const phonePattern =
-    /^[6-9]\d{9}$/;
-
-  if(!phonePattern.test(phone)){
-
-    message.innerText =
-      "⚠️ Please enter a valid 10-digit WhatsApp number.";
-
-    return;
-  }
-
-
-  /* Optional URL validation */
-  if(fileLink){
-
-    try{
-
-      new URL(fileLink);
-
-    }catch(error){
-
-      message.innerText =
-        "⚠️ Please enter a valid video link.";
-
-      return;
-    }
-
-  }
-
-
-  message.innerText =
-    "✅ Order created: " +
-    service +
-    ". Payment gateway will be connected here.";
-
-}
-
-
-/* Allow only numbers in phone field */
-document
-  .getElementById("phone")
-  .addEventListener("input", function(){
-
-    this.value =
-      this.value.replace(/\D/g,"");
-
-  });
-
-</script>
-
-</body>
+      /* Allow only numbers in phone field */
+      document.getElementById("phone").addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, "");
+      });
+    </script>
+  </body>
 </html>
